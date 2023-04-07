@@ -22,10 +22,12 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         # scripts / comandos que serão executados dentro do seu servidor
         script: |
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
           cd /var/app/github-actions
           git checkout develop
           git pull origin develop
           yarn
           yarn build
           cp -r dist/. /var/www/subdomain/github-actions/public_html/
-          systemctl reload apache2
+          sudo systemctl reload apache2
