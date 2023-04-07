@@ -29,5 +29,5 @@ jobs:
           git pull origin develop
           yarn
           yarn build
-          cp -r dist/. /var/www/subdomain/github-actions/public_html/
+          cp -r dist/. /var/www/subdomain/github-actions.lucasdbrito.com/public_html/
           sudo systemctl reload apache2
